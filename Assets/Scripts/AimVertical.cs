@@ -15,8 +15,6 @@ public class AimVertical : MonoBehaviour
 
     private float oldMouseY;
 
-    //private float originalRotation;
-
     void Start()
     {
         oldMouseY = Input.GetAxis("Mouse Y");
@@ -26,11 +24,10 @@ public class AimVertical : MonoBehaviour
     {
         float newMouseY = Input.GetAxis("Mouse Y");
 
-        
-        
+        //rotates view & cannon verically if a button is held
         if (Input.GetMouseButton(2))
         {
-            transform.Rotate(-(oldMouseY - newMouseY) * AimSpeed * Time.deltaTime, 0, 0);
+            transform.Rotate(Mathf.Clamp(-(oldMouseY - newMouseY) * AimSpeed * Time.deltaTime, MinAimRotation, MaxAimRotation), 0, 0);
         }
     }
 }

@@ -18,7 +18,7 @@ public class EnemySpawner : MonoBehaviour
 
     [SerializeField]
     private float SpawnInterval = 2f;
-    private float Timer = 0;
+    private float timer = 0;
 
     private float xMax;
     private float xMin;
@@ -35,11 +35,11 @@ public class EnemySpawner : MonoBehaviour
 
     void Update()
     {
-        Timer += Time.deltaTime;
-        if (Timer >= SpawnInterval && GameObject.FindGameObjectsWithTag("Enemy").Length <= 10)
+        timer += Time.deltaTime;
+        if (timer >= SpawnInterval && GameObject.FindGameObjectsWithTag("Enemy").Length <= 10)
         {
-            Instantiate(Enemy, new Vector3(Random.Range(xMin, xMax), transform.position.y, Random.Range(xMin, xMax)), transform.rotation);
-            Timer = 0;
+            Instantiate(Enemy, new Vector3(Random.Range(xMin, xMax), transform.position.y, Random.Range(zMin, zMax)), transform.rotation);
+            timer = 0;
         }
     }
 }
