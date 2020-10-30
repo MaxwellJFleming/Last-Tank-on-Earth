@@ -5,8 +5,12 @@ using UnityEngine;
 
 public class BulletBehavior : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject Score;
+    private ScoreCounter score;
+
+    private void Start()
+    {
+        score = ScoreCounter.instance;
+    }
 
     private void OnTriggerEnter(Collider c)
     {
@@ -14,7 +18,7 @@ public class BulletBehavior : MonoBehaviour
         if (c.gameObject.CompareTag("Enemy"))
         {
             Destroy(c.gameObject);
-            Score.GetComponent<ScoreCounter>().Score += 1000;
+            score.IncrementScore(1000);
         }
         Destroy(this.gameObject); //destroys the bullet (no matter what collision it enters)
     }

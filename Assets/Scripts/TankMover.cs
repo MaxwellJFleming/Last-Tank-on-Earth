@@ -5,9 +5,11 @@ using UnityEngine;
 
 public class TankMover : MonoBehaviour
 {
+    //speed of moving forward/backward
     [SerializeField]
     private float Speed = 0.1f;
 
+    //speed of turning
     [SerializeField]
     private float TurnSpeed = 1f;
 
@@ -30,11 +32,11 @@ public class TankMover : MonoBehaviour
             transform.Rotate(0, TurnSpeed * Time.deltaTime, 0);
     }
 
-    private void OnTriggerEnter(Collision c)
+    private void OnTriggerEnter(Collider c)
     {
         if (c.gameObject.CompareTag("Enemy"))
         {
-            
+            GameManagerScript.instance.GameOver();
         }
     }
 }
