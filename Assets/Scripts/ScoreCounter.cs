@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Animations;
 using UnityEngine;
@@ -11,6 +12,11 @@ public class ScoreCounter : MonoBehaviour
 
     private int score;
     public int Score { get => score; set => score = value; }
+
+    internal void IncrementScore(int v)
+    {
+        //throw new NotImplementedException();
+    }
 
     /*public static void IncrementScore(int increment)
     {
