@@ -14,7 +14,7 @@ public class BulletBehavior : MonoBehaviour
         if (c.gameObject.CompareTag("Enemy"))
         {
             Destroy(c.gameObject);
-            Score.GetComponent<ScoreCounter>().IncrementScore(1000);
+            Score.GetComponent<ScoreCounter>().Score += 1000;
         }
         Destroy(this.gameObject); //destroys the bullet (no matter what collision it enters)
     }
