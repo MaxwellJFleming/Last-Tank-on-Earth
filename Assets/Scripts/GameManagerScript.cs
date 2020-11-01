@@ -20,9 +20,4 @@ public class GameManagerScript : MonoBehaviour
     {
         SceneManager.LoadScene("End");
     }
-
-    public void IncrementScore()
-    {
-
-    }
 }

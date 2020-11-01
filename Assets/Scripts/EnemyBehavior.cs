@@ -7,7 +7,7 @@ public class EnemyBehavior : MonoBehaviour
 {
     //How far the enemy can see the player from
     [SerializeField]
-    private float LookRadius = 10f;
+    private float LookRadius = 100f;
 
     private Transform target;
     private NavMeshAgent agent;

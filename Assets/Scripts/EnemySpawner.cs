@@ -20,6 +20,9 @@ public class EnemySpawner : MonoBehaviour
     private float SpawnInterval = 2f;
     private float timer = 0;
 
+    [SerializeField]
+    private int MaxEnemies = 20;
+
     private float xMax;
     private float xMin;
     private float zMax;
@@ -36,7 +39,7 @@ public class EnemySpawner : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        if (timer >= SpawnInterval && GameObject.FindGameObjectsWithTag("Enemy").Length <= 10)
+        if (timer >= SpawnInterval && GameObject.FindGameObjectsWithTag("Enemy").Length <= MaxEnemies)
         {
             Instantiate(Enemy, new Vector3(Random.Range(xMin, xMax), transform.position.y, Random.Range(zMin, zMax)), transform.rotation);
             timer = 0;

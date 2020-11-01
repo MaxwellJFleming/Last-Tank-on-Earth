@@ -8,6 +8,7 @@ public class MenuController : MonoBehaviour
     public void PlayButton()
     {
         SceneManager.LoadScene("Game");
+        Score.score = 0;
     }
 
     public void QuitGame()
