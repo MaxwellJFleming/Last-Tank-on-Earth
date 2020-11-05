@@ -14,8 +14,8 @@ public class EnemyBehavior : MonoBehaviour
     
     void Start()
     {
-        target = GameManagerScript.instance.player;
-        agent = GetComponent<NavMeshAgent>();
+        target = GameManagerScript.instance.player; //tells the enemy what the player is
+        agent = GetComponent<NavMeshAgent>(); //sets the AI agent
     }
 
     //moves the enemy towards the player if it's within sight

@@ -15,31 +15,22 @@ public class AimVertical : MonoBehaviour
     [SerializeField]
     private float MinAimRotation = -10;
 
-    private float oldMouseY;
-    private float ogRotation;
-
     void Start()
     {
-        //stores current mouse y pos and cannon rotation as scene starts
-        oldMouseY = Input.GetAxis("Mouse Y");
-        ogRotation = transform.rotation.x;
+        //locks the cursor while playing
+        UnityEngine.Cursor.lockState = CursorLockMode.Locked;
     }
 
     void Update()
     {
-        float newMouseY = Input.GetAxis("Mouse Y");
-        float rotateAmount = -(newMouseY - oldMouseY) * AimSpeed * Time.deltaTime;
+        //UnityEngine.Cursor.lockState = CursorLockMode.Locked;
+
+        float rotateAmount = -Input.GetAxis("Mouse Y") * AimSpeed * Time.deltaTime;
 
         //rotates view & cannon verically if the new rotation is within bounds
-        if (transform.rotation.x + rotateAmount < MaxAimRotation && transform.rotation.x + rotateAmount > MinAimRotation)
+        if (rotateAmount < MaxAimRotation && rotateAmount > MinAimRotation)
         {
             transform.Rotate(rotateAmount, 0, 0);
-        }
-
-        //resets rotation when right mouse button is clicked
-        if (Input.GetMouseButtonDown(1))
-        {
-            transform.Rotate(transform.rotation.x - ogRotation, 0, 0);
         }
     }
 }

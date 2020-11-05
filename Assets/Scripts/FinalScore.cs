@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//the script used to show the final score
 public class FinalScore : MonoBehaviour
 {
     [SerializeField]
