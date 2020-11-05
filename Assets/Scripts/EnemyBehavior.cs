@@ -24,7 +24,6 @@ public class EnemyBehavior : MonoBehaviour
         if (Vector3.Distance(target.position, transform.position) <= LookRadius)
         {
             agent.SetDestination(target.position);
-            //transform.LookAt(target);
         }
     }
 }
