@@ -1,0 +1,7 @@
+Features and estimated implementation time:
+
+Player movement ~2 hours
+Aiming ~4 hours
+Shooting ~1.5 hours
+Enemy movement ~1.5 hours
+Intro/end screens ~3 hours
