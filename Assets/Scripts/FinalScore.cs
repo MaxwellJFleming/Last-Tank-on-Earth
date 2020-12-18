@@ -4,13 +4,13 @@ using UnityEngine;
 using UnityEngine.UI;
 
 //the script used to show the final score
-public class FinalScore : MonoBehaviour
+public class HighScoreDisplay : MonoBehaviour
 {
     [SerializeField]
-    private Text ScoreText;
+    private Text HighScoreDisplayText;
 
     void Update()
     {
-        ScoreText.text = $"FINAL SCORE: {Score.score}";
+        HighScoreDisplayText.text = $"HIGH SCORE: {Score.getHighScore()}";
     }
 }

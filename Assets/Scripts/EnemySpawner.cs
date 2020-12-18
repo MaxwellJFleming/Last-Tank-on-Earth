@@ -16,11 +16,18 @@ public class EnemySpawner : MonoBehaviour
 
     void Update()
     {
+        //adds deltaTime time to timer
         timer += Time.deltaTime;
+
         //spawns a new enemy in a random location if it's been {SpawnInterval} seconds since the last one spawned and there are less than {MaxEnemies} enemies onscreen
         if (timer >= SpawnInterval && GameObject.FindGameObjectsWithTag("Enemy").Length < MaxEnemies)
         {
-            Instantiate(Enemy, new Vector3(Random.Range(GameManagerScript.instance.xMin, GameManagerScript.instance.xMax), transform.position.y, Random.Range(GameManagerScript.instance.zMin, GameManagerScript.instance.zMax)), transform.rotation);
+            GameObject newEnemy = Instantiate(Enemy, new Vector3(Random.Range(GameManagerScript.instance.xMin, GameManagerScript.instance.xMax), transform.position.y, Random.Range(GameManagerScript.instance.zMin, GameManagerScript.instance.zMax)), transform.rotation);
+
+            //rotates the newEnemy a random amount about the y axis
+            newEnemy.transform.Rotate(0, Random.Range(0, 360), 0);
+
+            //resets timer
             timer = 0;
         }
     }

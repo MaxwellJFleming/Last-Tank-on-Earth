@@ -4,14 +4,18 @@ using UnityEngine;
 
 public class BulletBehavior : MonoBehaviour
 {
+    //hwo long the bullet stays alive for
+    [SerializeField]
+    private float Lifetime = 2f;
+    
+    private void Awake()
+    {
+        //destroys the bullet after {Lifetime} seconds
+        Destroy(this.gameObject, Lifetime);
+    }
     private void OnTriggerEnter(Collider c)
     {
-        //if it his an enemy, the enemy is destroyed and the score is increased.
-        if (c.gameObject.CompareTag("Enemy"))
-        {
-            Destroy(c.gameObject);
-            Score.score+=1000;
-        }
-        Destroy(this.gameObject); //destroys the bullet (no matter what collision it enters)
+        //destroys the bullet when it hits any collider
+        Destroy(this.gameObject);
     }
 }

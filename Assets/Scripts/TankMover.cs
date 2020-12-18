@@ -38,7 +38,14 @@ public class TankMover : MonoBehaviour
         //ends game if player collides with an enemy
         if (c.gameObject.CompareTag("Enemy"))
         {
-            Cursor.lockState = CursorLockMode.None; //unlocks the cursor for the end screen
+            //unlocks the cursor for the end screen
+            Cursor.lockState = CursorLockMode.None;
+
+            //sets a new high score if old high score is broken
+            if (Score.score > Score.getHighScore())
+                Score.setHighScore();
+
+            //loads the end scene
             SceneManager.LoadScene("End");
         }
     }

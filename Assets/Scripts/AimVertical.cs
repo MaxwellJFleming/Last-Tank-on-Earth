@@ -23,8 +23,6 @@ public class AimVertical : MonoBehaviour
 
     void Update()
     {
-        //UnityEngine.Cursor.lockState = CursorLockMode.Locked;
-
         float rotateAmount = -Input.GetAxis("Mouse Y") * AimSpeed * Time.deltaTime;
 
         //rotates view & cannon verically if the new rotation is within bounds
